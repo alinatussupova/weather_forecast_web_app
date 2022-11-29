@@ -1,7 +1,13 @@
 import requests
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 
-API_KEY = "bfb6db37ddda9a196d0f7667fd2d434a"
+API_KEY = os.environ.get("API_KEY")
 
 
 def get_data(city, forecast_days=None):
